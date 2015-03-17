@@ -96,12 +96,6 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="MSI-FM-CMc"/>
                                 </connections>
                             </button>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Flips:0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yjM-z1-Xs1">
-                                <rect key="frame" x="11" y="527" width="288" height="21"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uyQ-bS-0Ug">
                                 <rect key="frame" x="16" y="228" width="62" height="79"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="24"/>
@@ -147,7 +141,6 @@
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
-                        <outlet property="flipsLabel" destination="yjM-z1-Xs1" id="GEY-aF-iKe"/>
                         <outletCollection property="cardButtons" destination="3d5-dP-6et" id="p3D-4L-oRD"/>
                         <outletCollection property="cardButtons" destination="B1K-nv-7qm" id="PQS-SM-i9F"/>
                         <outletCollection property="cardButtons" destination="gBC-a1-LBg" id="0qq-BB-1Y4"/>

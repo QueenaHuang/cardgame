@@ -11,10 +11,7 @@
 #import "CardMatchingGame.h"
 
 @interface CardGameViewController ()
-@property (weak, nonatomic) IBOutlet UILabel *flipsLabel;
-@property (nonatomic) int flipCount;
 
-@property (nonatomic) int test;
 @property (strong, nonatomic) Deck *randomdeck;
 @property (strong, nonatomic) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
@@ -28,61 +25,35 @@
     return _game;
 }
 
--(Deck *)randomdeck
-{
-    // lazy instantiation
-    if(!_randomdeck) _randomdeck = [self createDeck];
-    return _randomdeck;
-}
 
 -(Deck *)createDeck
 {
     return [[PlayingCardDeck alloc] init];
 }
 
--(void) setFlipCount:(int)flipCount
-{
-    _flipCount = flipCount ;
-    self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %d", self.flipCount];
-    NSLog(@"flipCount = %d ", self.flipCount);
-}
-
-/*
- any time the 'test' @property changes, the method is called.
- becase setTest() is the setter of the 'test'.
- if it use 'settest()', it doesn't work!
- */
--(void) setTest:(int)test
-{
-    
-    _test = test;
-    self.flipsLabel.text = [NSString stringWithFormat:@"Flips: %d", self.test];
-    NSLog(@"i = %d ", self.test);
-}
 
 - (IBAction)touchCardButton:(UIButton *)sender
 
 {
     
-//    int chosenButtonIndex = = [self.cardButtons indexOfObject:sender];
-//    [self.game chooseCardAtIndex:chosenButtonIndex];
-//    [self updateUI];
 
+    int chosenButtonIndex = [self.cardButtons indexOfObject:sender];
+    [self.game chooseCardAtIndex:chosenButtonIndex];
+    [self updateUI];
     
-    if ([sender.currentTitle length]) {
-        [sender setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
-        [sender setTitle:@"" forState:UIControlStateNormal];
-    } else{
-        Card *playcard = [self.randomdeck drawRandomCard];
-        if (playcard) {
-            [sender setBackgroundImage:[UIImage imageNamed:@"cardfront"] forState:UIControlStateNormal];
-            [sender setTitle:[playcard contents] forState:UIControlStateNormal];
-        }
-        
-    }
+//    if ([sender.currentTitle length]) {
+//        [sender setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
+//        [sender setTitle:@"" forState:UIControlStateNormal];
+//    } else{
+//        Card *playcard = [self.randomdeck drawRandomCard];
+//        if (playcard) {
+//            [sender setBackgroundImage:[UIImage imageNamed:@"cardfront"] forState:UIControlStateNormal];
+//            [sender setTitle:[playcard contents] forState:UIControlStateNormal];
+//        }
+//        
+//    }
     
-    self.test++;
-    self.flipCount++;
+ 
 }
 
 - (void) updateUI
