@@ -12,6 +12,7 @@
 
 @interface CardGameViewController ()
 
+@property (weak, nonatomic) IBOutlet UILabel *scoreLabel;
 @property (strong, nonatomic) Deck *randomdeck;
 @property (strong, nonatomic) CardMatchingGame *game;
 @property (strong, nonatomic) IBOutletCollection(UIButton) NSArray *cardButtons;
@@ -35,35 +36,21 @@
 - (IBAction)touchCardButton:(UIButton *)sender
 
 {
-    
-
-    int chosenButtonIndex = [self.cardButtons indexOfObject:sender];
-    [self.game chooseCardAtIndex:chosenButtonIndex];
+    //int chosenButtonIndex = [self.cardButtons indexOfObject:sender];
+    [self.game chooseCardAtIndex:[self.cardButtons indexOfObject:sender]];
     [self updateUI];
     
-//    if ([sender.currentTitle length]) {
-//        [sender setBackgroundImage:[UIImage imageNamed:@"cardback"] forState:UIControlStateNormal];
-//        [sender setTitle:@"" forState:UIControlStateNormal];
-//    } else{
-//        Card *playcard = [self.randomdeck drawRandomCard];
-//        if (playcard) {
-//            [sender setBackgroundImage:[UIImage imageNamed:@"cardfront"] forState:UIControlStateNormal];
-//            [sender setTitle:[playcard contents] forState:UIControlStateNormal];
-//        }
-//        
-//    }
-    
- 
 }
 
 - (void) updateUI
 {
     for (UIButton *cardButton in self.cardButtons) {
-        int cardButtonIndex = [self.cardButtons indexOfObject:cardButton];
-        Card *card = [self.game cardAtIndex:cardButtonIndex];
+        //int cardButtonIndex = [self.cardButtons indexOfObject:cardButton];
+        Card *card = [self.game cardAtIndex:[self.cardButtons indexOfObject:cardButton]];
         [cardButton setTitle:[self titleForCard:card] forState:UIControlStateNormal];
         [cardButton setBackgroundImage:[self backgroundImageForCard:card] forState:UIControlStateNormal];
-        cardButton.enabled = !card.isMatched; // WHY ?
+        cardButton.enabled = !card.isMatched; 
+        self.scoreLabel.text = [NSString stringWithFormat:@"Score: %ld", self.game.score];
     }
 }
 

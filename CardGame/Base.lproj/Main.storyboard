@@ -136,11 +136,18 @@
                                     <action selector="touchCardButton:" destination="vXZ-lx-hvc" eventType="touchUpInside" id="z2U-oS-EbC"/>
                                 </connections>
                             </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Score: 0" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nhx-Oz-LAv">
+                                <rect key="frame" x="16" y="527" width="288" height="21"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                <color key="textColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
                         </subviews>
                         <color key="backgroundColor" red="0.29579006595018842" green="0.68168008207070707" blue="0.41123544022021613" alpha="1" colorSpace="calibratedRGB"/>
                     </view>
                     <simulatedScreenMetrics key="simulatedDestinationMetrics" type="retina4"/>
                     <connections>
+                        <outlet property="scoreLabel" destination="nhx-Oz-LAv" id="f3v-57-K7q"/>
                         <outletCollection property="cardButtons" destination="3d5-dP-6et" id="p3D-4L-oRD"/>
                         <outletCollection property="cardButtons" destination="B1K-nv-7qm" id="PQS-SM-i9F"/>
                         <outletCollection property="cardButtons" destination="gBC-a1-LBg" id="0qq-BB-1Y4"/>
